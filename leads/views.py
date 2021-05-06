@@ -4,7 +4,7 @@ from .models import Lead
 
 # Create your views here.
 
-def home_page(request):
+def lead_list(request):
     # return HttpResponse("Hello world")
     leads = Lead.objects.all()
 
@@ -12,4 +12,13 @@ def home_page(request):
         "leads": leads
     }
 
-    return render(request, "second_page.html", context)
+    return render(request, "leads/lead_list.html", context)
+
+def lead_detail(request, id):
+    lead = Lead.objects.get(id=id)
+    
+    context = {
+        "leads": lead
+    }
+
+    return render(request, "leads/lead_detail.html", context)

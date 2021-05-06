@@ -7,7 +7,11 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>Here is our HTML template</p>
+    <h1>This is all of our leads</h1>
+    <ul>
+        {% for lead in leads %}
+            <a href="/leads/{{ lead.id }}"><li>{{ lead.first_name }}</li></a>
+        {% endfor %}
+    </ul>
 </body>
 </html>
